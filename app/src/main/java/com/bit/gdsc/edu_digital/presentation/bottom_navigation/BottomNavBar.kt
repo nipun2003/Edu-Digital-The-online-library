@@ -2,19 +2,20 @@ package com.bit.gdsc.edu_digital.presentation.bottom_navigation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.bit.gdsc.edu_digital.R
 
 @Composable
 fun BottomNavBar() {
@@ -23,17 +24,17 @@ fun BottomNavBar() {
         BottomNavItem(
             name = "Courses",
             route = Screen.CoursesScreen.route,
-            icon = Icons.Default.Home
+            iconId = R.drawable.ic_bottom_nav_courses
         ),
         BottomNavItem(
             name = "Downloads",
             route = Screen.DownloadsScreen.route,
-            icon = Icons.Default.Home
+            iconId = R.drawable.ic_bottom_nav_downloads
         ),
         BottomNavItem(
             name = "Profile",
             route = Screen.ProfileScreen.route,
-            icon = Icons.Default.Home
+            iconId = R.drawable.ic_bottom_nav_profile
         )
     )
     Scaffold(
@@ -75,8 +76,9 @@ fun BottomNavBarState(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Icon(
-                            imageVector = item.icon,
-                            contentDescription = item.name
+                            painter = painterResource(id = item.iconId),
+                            contentDescription = item.name,
+                            modifier = Modifier.size(24.dp)
                         )
                         if(selected){
                             Text(
