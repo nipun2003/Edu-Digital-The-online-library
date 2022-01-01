@@ -29,7 +29,7 @@ fun BottomNavBar() {
             name = "Downloads",
             route = Screen.DownloadsScreen.route,
             icon = Icons.Default.Home
-        ),                               
+        ),
         BottomNavItem(
             name = "Profile",
             route = Screen.ProfileScreen.route,
