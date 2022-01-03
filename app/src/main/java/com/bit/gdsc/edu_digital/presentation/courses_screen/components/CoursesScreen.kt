@@ -62,14 +62,6 @@ fun CoursesScreen() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EduDigitalTheme {
-        CoursesScreen()
-    }
-}
-
 @Composable
 fun CoursesCard(
     modifier: Modifier = Modifier,
@@ -86,9 +78,7 @@ fun CoursesCard(
         ) {
             Image(
                 painter =
-                painterResource(
-                    id = course.backgroundImgId
-                ),
+                painterResource(id = course.backgroundImgId),
                 contentDescription = "Background image",
                 modifier = Modifier
                     .fillMaxSize()
@@ -117,5 +107,13 @@ fun CoursesCard(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    EduDigitalTheme {
+        CoursesScreen()
     }
 }
