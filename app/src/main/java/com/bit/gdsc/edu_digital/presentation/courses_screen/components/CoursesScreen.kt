@@ -62,14 +62,6 @@ fun CoursesScreen() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EduDigitalTheme {
-        CoursesScreen()
-    }
-}
-
 @Composable
 fun CoursesCard(
     modifier: Modifier = Modifier,
@@ -117,5 +109,13 @@ fun CoursesCard(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    EduDigitalTheme {
+        CoursesScreen()
     }
 }
