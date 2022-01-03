@@ -78,9 +78,7 @@ fun CoursesCard(
         ) {
             Image(
                 painter =
-                painterResource(
-                    id = course.backgroundImgId
-                ),
+                painterResource(id = course.backgroundImgId),
                 contentDescription = "Background image",
                 modifier = Modifier
                     .fillMaxSize()
