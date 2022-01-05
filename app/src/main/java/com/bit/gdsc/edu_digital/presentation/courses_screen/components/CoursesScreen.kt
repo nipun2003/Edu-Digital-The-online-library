@@ -50,7 +50,7 @@ fun CoursesScreen() {
             CoursesCard(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(2.2f)
+                    .aspectRatio(2.6f)
                     .padding(horizontal = ExtraSmallPadding),
                 course = courses[it]
 
