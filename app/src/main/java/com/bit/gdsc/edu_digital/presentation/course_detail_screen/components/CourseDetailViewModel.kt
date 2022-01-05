@@ -2,8 +2,10 @@ package com.bit.gdsc.edu_digital.presentation.course_detail_screen.components
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bit.gdsc.edu_digital.common.Constants
 import com.bit.gdsc.edu_digital.common.Resource
 import com.bit.gdsc.edu_digital.domain.repository.TopicWiseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,13 +15,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CourseDetailViewModel @Inject constructor(
-    private val topicWiseRepository: TopicWiseRepository
+    private val topicWiseRepository: TopicWiseRepository,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _dsaTopicWiseState = mutableStateOf(TopicWiseState())
     val dsaTopicWiseState : State<TopicWiseState> = _dsaTopicWiseState
 
     init {
+        savedStateHandle.get<Int>("id")?.let { id->
+            Constants.courseMap[id]?.let {
+                getDsaTopicWise(it)
+            }
+        }
         getDsaTopicWise("DSATopicWise")
     }
 

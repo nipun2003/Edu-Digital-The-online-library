@@ -14,21 +14,21 @@ data class Course(
 
 val courses: List<Course> = listOf(
     Course(
-        id = 1,
+        id = 2,
         name = "CPP",
         iconId = R.drawable.ic_bottom_nav_courses,
         color = Color.Green,
         backgroundImgId = R.drawable.top_image_courses_screen
     ),
     Course(
-        id = 2,
+        id = 3,
         name = "Java",
         iconId = R.drawable.ic_bottom_nav_courses,
         color = Color.Green,
         backgroundImgId = R.drawable.top_image_courses_screen
     ),
     Course(
-        id = 3,
+        id = 1,
         name = "Data Structure & Algorithm",
         iconId = R.drawable.ic_bottom_nav_courses,
         color = Color.Green,

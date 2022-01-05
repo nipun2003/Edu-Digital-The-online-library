@@ -2,6 +2,7 @@ package com.bit.gdsc.edu_digital.presentation.courses_screen.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,14 +19,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.navigation.NavController
 import com.bit.gdsc.edu_digital.R
 import com.bit.gdsc.edu_digital.domain.model.Course
 import com.bit.gdsc.edu_digital.domain.model.courses
 import com.bit.gdsc.edu_digital.presentation.bottom_navigation.BottomNavBar
+import com.bit.gdsc.edu_digital.presentation.bottom_navigation.Screen
 import com.bit.gdsc.edu_digital.presentation.ui.theme.*
 
 @Composable
-fun CoursesScreen() {
+fun CoursesScreen(
+    navController: NavController
+) {
 
     LazyColumn(
         modifier = Modifier
@@ -54,7 +59,9 @@ fun CoursesScreen() {
                     .padding(horizontal = ExtraSmallPadding),
                 course = courses[it]
 
-            )
+            ){ id->
+                navController.navigate(Screen.CoursesScreen.route+"/$id")
+            }
         }
         item {
             Spacer(modifier = Modifier.size(SmallIconClip))
@@ -65,7 +72,8 @@ fun CoursesScreen() {
 @Composable
 fun CoursesCard(
     modifier: Modifier = Modifier,
-    course: Course
+    course: Course,
+    onClick : (Int) -> Unit
 ) {
     Surface(
         color = course.color,
@@ -75,6 +83,7 @@ fun CoursesCard(
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .clickable { onClick(course.id) }
         ) {
             Image(
                 painter =
@@ -107,13 +116,5 @@ fun CoursesCard(
                 )
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EduDigitalTheme {
-        CoursesScreen()
     }
 }
