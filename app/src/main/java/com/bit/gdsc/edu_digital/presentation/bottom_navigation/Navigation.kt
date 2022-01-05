@@ -16,7 +16,7 @@ fun Navigation(navController: NavHostController) {
             CoursesScreen()
         }
         composable(route = Screen.DownloadsScreen.route){
-            CourseDetailScreen()
+            DownloadsScreen()
         }
         composable(route = Screen.ProfileScreen.route){
             ProfileScreen()
