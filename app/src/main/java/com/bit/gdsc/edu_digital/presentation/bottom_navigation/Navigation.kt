@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.bit.gdsc.edu_digital.presentation.course_detail_screen.components.CourseDetailScreen
 import com.bit.gdsc.edu_digital.presentation.courses_screen.components.CoursesScreen
 import com.bit.gdsc.edu_digital.presentation.downloads_screen.components.DownloadsScreen
 import com.bit.gdsc.edu_digital.presentation.profile_screen.components.ProfileScreen
@@ -15,7 +16,7 @@ fun Navigation(navController: NavHostController) {
             CoursesScreen()
         }
         composable(route = Screen.DownloadsScreen.route){
-            DownloadsScreen()
+            CourseDetailScreen()
         }
         composable(route = Screen.ProfileScreen.route){
             ProfileScreen()
