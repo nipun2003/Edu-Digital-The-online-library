@@ -2,21 +2,21 @@ package com.bit.gdsc.edu_digital.presentation.course_detail_screen.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.bit.gdsc.edu_digital.presentation.ui.theme.BigPadding
-import com.bit.gdsc.edu_digital.presentation.ui.theme.SmallPadding
+import com.bit.gdsc.edu_digital.presentation.ui.theme.*
 
+@ExperimentalMaterialApi
 @Composable
 fun CourseDetailScreen(
     viewModel: CourseDetailViewModel = hiltViewModel()
 ) {
     val topicWiseState = viewModel.dsaTopicWiseState.value
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -41,12 +41,19 @@ fun CourseDetailScreen(
                 if(it>0){
                     Spacer(modifier = Modifier.size(SmallPadding))
                 }
-                Text(
-                    text = topicWiseState.data[it].topicName,
-                    style = MaterialTheme.typography.h3,
-                    modifier = Modifier.align(Alignment.Center)
-                )
+
+                val clrCheck = it%4;
+                when(it){
+                    0 -> ExpandableCard(topicWiseState.data[it], Color1)
+                    1 -> ExpandableCard(topicWiseState.data[it], Color2)
+                    2 -> ExpandableCard(topicWiseState.data[it], Color3)
+                    else -> ExpandableCard(topicWiseState.data[it], Color4)
+                }
+
             }
         }
     }
 }
+
+
+

@@ -28,7 +28,6 @@ class CourseDetailViewModel @Inject constructor(
                 getDsaTopicWise(it)
             }
         }
-        getDsaTopicWise("DSATopicWise")
     }
 
     private fun getDsaTopicWise(key : String){
