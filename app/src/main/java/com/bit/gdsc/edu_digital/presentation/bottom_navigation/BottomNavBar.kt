@@ -17,6 +17,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.bit.gdsc.edu_digital.R
 
+@ExperimentalMaterialApi
 @Composable
 fun BottomNavBar() {
     val navController = rememberNavController()

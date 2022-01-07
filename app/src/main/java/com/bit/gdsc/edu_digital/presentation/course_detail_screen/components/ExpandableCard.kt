@@ -4,10 +4,9 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -17,9 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.bit.gdsc.edu_digital.R
 import com.bit.gdsc.edu_digital.data.remote.dto.DSATopicWiseDtoItem
+import com.bit.gdsc.edu_digital.data.remote.dto.TopicLink
+import com.bit.gdsc.edu_digital.presentation.ui.theme.SmallPadding
 
 @ExperimentalMaterialApi
 @Composable
@@ -41,7 +44,7 @@ fun ExpandableCard(
                     easing = LinearOutSlowInEasing
                 )
             ),
-        shape = MaterialTheme.shapes.small,
+        shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
         color = bgColor,
         onClick = {
@@ -80,8 +83,54 @@ fun ExpandableCard(
             }
 
             if(expandedState){
-                Text(text = "fdfsfdjslkdfjskldf fjsdfjfsdfsdlfjslffffdsdflskfjskldfjsdfjlsjfsjflsfjlsjflsjflks")
+                TopicLinkItems(topicItem.topicLinks)
             }
         }
+    }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun TopicLinkItems(topicLinkItems: List<TopicLink>) {
+    LazyRow(){
+        items(topicLinkItems.size){
+            if(it>0){
+                Spacer(modifier = Modifier.size(SmallPadding))
+            }
+            TopicLinkItemCard(item = topicLinkItems[it])
+        }
+    }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun TopicLinkItemCard(item : TopicLink) {
+    Surface(
+        modifier = Modifier
+            .size(90.dp),
+        shape = MaterialTheme.shapes.small,
+        elevation = 5.dp,
+        color = Color.White,
+        onClick = {
+            //TODO("Open the link in custom tab")
+        }
+    ){
+        when(item.linkType){
+            "pdf" -> Image(
+                painter = painterResource(id = R.drawable.icon_pdf),
+                contentDescription ="pdf"
+            )
+
+            "youtube" -> Image(
+                painter = painterResource(id = R.drawable.ic_bottom_nav_profile),
+                contentDescription ="youtube video"
+            )
+
+            else -> Image(
+                painter = painterResource(id = R.drawable.ic_bottom_nav_courses),
+                contentDescription ="web view"
+            )
+        }
+
     }
 }
