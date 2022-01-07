@@ -1,5 +1,8 @@
 package com.bit.gdsc.edu_digital.presentation.course_detail_screen.components
 
+import android.net.Uri
+import android.util.Log
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
@@ -16,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -105,6 +109,7 @@ fun TopicLinkItems(topicLinkItems: List<TopicLink>) {
 @ExperimentalMaterialApi
 @Composable
 fun TopicLinkItemCard(item : TopicLink) {
+    val context = LocalContext.current
     Surface(
         modifier = Modifier
             .size(90.dp),
@@ -112,7 +117,11 @@ fun TopicLinkItemCard(item : TopicLink) {
         elevation = 5.dp,
         color = Color.White,
         onClick = {
-            //TODO("Open the link in custom tab")
+            Log.e("TAG", item.link)
+            val url : String = item.link
+            val builder = CustomTabsIntent.Builder();
+            val customTabsIntent = builder.build();
+            customTabsIntent.launchUrl(context, Uri.parse(url));
         }
     ){
         when(item.linkType){
