@@ -104,9 +104,6 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.4.0"
 
-    // Youtube player
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
-
     // Custom tab
     implementation "androidx.browser:browser:1.4.0"
 }

@@ -1,8 +1,9 @@
-package com.bit.gdsc.edu_digital.presentation.downloads_screen.components
+package com.bit.gdsc.edu_digital.presentation.question_screen.components
 
-import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -11,49 +12,64 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bit.gdsc.edu_digital.domain.model.DownloadedPdf
-import com.bit.gdsc.edu_digital.presentation.ui.theme.*
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.bit.gdsc.edu_digital.R
+import com.bit.gdsc.edu_digital.data.remote.dto.QuestionDtoItem
+import com.bit.gdsc.edu_digital.domain.model.DownloadedPdf
+import com.bit.gdsc.edu_digital.presentation.question_screen.QuestionViewModel
+import com.bit.gdsc.edu_digital.presentation.ui.theme.*
 
 @Composable
-fun DownloadsScreen() {
-
-    val downloadedPdfs = listOf<DownloadedPdf>(
-        DownloadedPdf(
-            "Merge Sort",
-            "we will be learning about the merge sort in this pdf"
-        )
-    )
-
-    LazyColumn(
+fun QuestionScreen(
+    viewModel: QuestionViewModel = hiltViewModel()
+) {
+    val questionState = viewModel.questionState.value
+    Box(
         modifier = Modifier
-            .fillMaxWidth(),
-        contentPadding = PaddingValues(BigPadding),
+            .fillMaxSize()
+            .padding(BigPadding)
     ) {
-        items(downloadedPdfs.size) {
-            if (it > 0) {
-                Spacer(modifier = Modifier.size(BigPadding))
-            }
-            DownloadCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(3.9f)
-                    .padding(horizontal = ExtraSmallPadding),
-                downloadedPdf = downloadedPdfs[it]
+        if (questionState.isLoading) {
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.Center)
             )
         }
-        item {
-            Spacer(modifier = Modifier.size(SmallIconClip))
+        if (questionState.message != null) {
+            questionState.message?.let { message ->
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.h3,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+
+            }
+        }
+
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth()
+        ){
+            val data = questionState.data
+            items(data.size){
+                if(it>0){
+                    Spacer(modifier = Modifier.size(SmallPadding))
+                }
+                QuestionCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    questionItem = data[it]
+                )
+            }
+            item {
+                Spacer(modifier = Modifier.size(SmallIconClip))
+            }
         }
     }
 }
 
 @Composable
-fun DownloadCard(
+fun QuestionCard(
     modifier: Modifier = Modifier,
-    downloadedPdf: DownloadedPdf
+    questionItem: QuestionDtoItem
 ) {
     Surface(
         color = Color.White,
@@ -74,32 +90,24 @@ fun DownloadCard(
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_bottom_nav_downloads),
-                    contentDescription = downloadedPdf.name,
+                    contentDescription = questionItem.topic,
                     modifier = Modifier
                         .size(SmallIconClip)
                         .padding(ExtraSmallPadding)
                 )
                 Column(
                     modifier = Modifier.fillMaxWidth()
-                ){
+                ) {
                     Text(
-                        text = downloadedPdf.name,
+                        text = questionItem.topic,
                         style = Typography.h3
                     )
                     Text(
-                        text = downloadedPdf.description,
+                        text = questionItem.questionLink,
                         style = Typography.body1
                     )
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EduDigitalTheme {
-        DownloadsScreen()
     }
 }

@@ -7,7 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.bit.gdsc.edu_digital.R
 import com.bit.gdsc.edu_digital.presentation.ui.theme.*
 
 @ExperimentalMaterialApi
@@ -17,43 +19,83 @@ fun CourseDetailScreen(
 ) {
     val topicWiseState = viewModel.dsaTopicWiseState.value
 
-    Box(
+    Scaffold(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(BigPadding)
+            .fillMaxSize(),
+        topBar = {
+            TopBar(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                title = viewModel.title.value
+            )
+        }
     ) {
         if (topicWiseState.isLoading) {
-            CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.Center)
-            )
+            CircularProgressIndicator()
         }
         if (topicWiseState.message != null) {
             topicWiseState.message?.let { message ->
                 Text(
                     text = message,
-                    style = MaterialTheme.typography.h3,
-                    modifier = Modifier.align(Alignment.Center)
+                    style = MaterialTheme.typography.h3
                 )
             }
         }
-        LazyColumn{
-            items(topicWiseState.data.size){
-                if(it>0){
-                    Spacer(modifier = Modifier.size(SmallPadding))
-                }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(BigPadding)
+        ) {
+            LazyColumn {
+                items(topicWiseState.data.size) {
+                    if (it > 0) {
+                        Spacer(modifier = Modifier.size(SmallPadding))
+                    }
 
-                val clrCheck = it%4;
-                when(it){
-                    0 -> ExpandableCard(topicWiseState.data[it], Color1)
-                    1 -> ExpandableCard(topicWiseState.data[it], Color2)
-                    2 -> ExpandableCard(topicWiseState.data[it], Color3)
-                    else -> ExpandableCard(topicWiseState.data[it], Color4)
-                }
+                    val clrCheck = it % 4;
+                    when (it) {
+                        0 -> ExpandableCard(topicWiseState.data[it], Color1)
+                        1 -> ExpandableCard(topicWiseState.data[it], Color2)
+                        2 -> ExpandableCard(topicWiseState.data[it], Color3)
+                        else -> ExpandableCard(topicWiseState.data[it], Color4)
+                    }
 
+                }
             }
         }
     }
 }
+
+@Composable
+fun TopBar(
+    modifier: Modifier = Modifier,
+    title: String
+) {
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colors.background,
+        elevation = SmallPadding
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = BigPadding, vertical = SmallPadding),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.h2
+            )
+            Icon(
+                painter = painterResource(id = R.drawable.ic_search),
+                contentDescription = "Search",
+                modifier = Modifier.size(ExtraBigPadding)
+            )
+        }
+    }
+}
+
 
 
 

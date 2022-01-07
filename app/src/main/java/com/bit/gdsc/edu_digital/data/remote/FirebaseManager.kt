@@ -1,6 +1,7 @@
 package com.bit.gdsc.edu_digital.data.remote
 
 import com.bit.gdsc.edu_digital.data.remote.dto.DSATopicWiseDto
+import com.bit.gdsc.edu_digital.data.remote.dto.QuestionDto
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -23,5 +24,10 @@ class FirebaseManager {
     fun getTopicWiseDetail(key : String) : DSATopicWiseDto{
         val gson = Gson()
         return gson.fromJson(remoteConfig.getString(key),DSATopicWiseDto::class.java)
+    }
+
+    fun getQuestion() : QuestionDto{
+        val gson = Gson()
+        return gson.fromJson(remoteConfig.getString("QuestionsTopicWise"),QuestionDto::class.java)
     }
 }

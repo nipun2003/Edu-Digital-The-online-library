@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bit.gdsc.edu_digital.common.Constants
 import com.bit.gdsc.edu_digital.common.Resource
+import com.bit.gdsc.edu_digital.domain.model.courses
 import com.bit.gdsc.edu_digital.domain.repository.TopicWiseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -19,11 +20,15 @@ class CourseDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
+    private val _title = mutableStateOf("")
+    val title : State<String> = _title
+
     private val _dsaTopicWiseState = mutableStateOf(TopicWiseState())
     val dsaTopicWiseState : State<TopicWiseState> = _dsaTopicWiseState
 
     init {
         savedStateHandle.get<Int>("id")?.let { id->
+            _title.value = courses[id-1].name
             Constants.courseMap[id]?.let {
                 getDsaTopicWise(it)
             }

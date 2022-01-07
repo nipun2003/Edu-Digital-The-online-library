@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,7 +28,7 @@ fun BottomNavBar() {
             iconId = R.drawable.ic_bottom_nav_courses
         ),
         BottomNavItem(
-            name = "Downloads",
+            name = "Questions",
             route = Screen.DownloadsScreen.route,
             iconId = R.drawable.ic_bottom_nav_downloads
         ),
@@ -38,18 +38,30 @@ fun BottomNavBar() {
             iconId = R.drawable.ic_bottom_nav_profile
         )
     )
+    var showBar by remember {
+        mutableStateOf(
+            true
+        )
+    }
     Scaffold(
         bottomBar = {
-            BottomNavBarState(
-                items = navItems,
-                navController = navController,
-                onItemClick = {
-                    navController.navigate(it.route)
-                }
-            )
+            if(showBar) {
+                BottomNavBarState(
+                    items = navItems,
+                    navController = navController,
+                    onItemClick = {
+                        navController.navigate(it.route) {
+                            popUpTo(Screen.CoursesScreen.route)
+                            launchSingleTop = true
+                        }
+                    }
+                )
+            }
         }
     ) {
-        Navigation(navController = navController)
+        Navigation(navController = navController){
+            showBar = it
+        }
     }
 }
 

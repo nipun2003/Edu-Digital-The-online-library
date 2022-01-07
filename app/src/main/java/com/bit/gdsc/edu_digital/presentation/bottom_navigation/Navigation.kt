@@ -7,30 +7,16 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.bit.gdsc.edu_digital.presentation.course_detail_screen.components.CourseDetailScreen
 import com.bit.gdsc.edu_digital.presentation.courses_screen.components.CoursesScreen
-import com.bit.gdsc.edu_digital.presentation.downloads_screen.components.DownloadsScreen
+import com.bit.gdsc.edu_digital.presentation.question_screen.components.QuestionScreen
 import com.bit.gdsc.edu_digital.presentation.profile_screen.components.ProfileScreen
 
 @ExperimentalMaterialApi
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(navController: NavHostController,
+showBar: (Boolean) -> Unit) {
     NavHost(navController = navController, startDestination = "Course", route = "root") {
-        courseGraph(navController)
-        composable(route = Screen.DownloadsScreen.route){
-            DownloadsScreen()
-        }
-        composable(route = Screen.ProfileScreen.route){
-            ProfileScreen()
-        }
-    }
-}
-
-@ExperimentalMaterialApi
-fun NavGraphBuilder.courseGraph(navController: NavHostController){
-    navigation(startDestination = Screen.CoursesScreen.route, route = "Course"){
-        composable(
-            route = Screen.CoursesScreen.route
-        ){
-            CoursesScreen(navController)
+        homeGraph(navController){
+            showBar(it)
         }
         composable(
             route = Screen.CoursesScreen.route+"/{id}",
@@ -40,7 +26,30 @@ fun NavGraphBuilder.courseGraph(navController: NavHostController){
                 }
             )
         ){
+            showBar(false)
             CourseDetailScreen()
+        }
+    }
+}
+
+@ExperimentalMaterialApi
+fun NavGraphBuilder.homeGraph(navController: NavHostController,
+                              showBar : (Boolean) -> Unit
+){
+    navigation(startDestination = Screen.CoursesScreen.route, route = "Course"){
+        composable(
+            route = Screen.CoursesScreen.route
+        ){
+            showBar(true)
+            CoursesScreen(navController)
+        }
+        composable(route = Screen.DownloadsScreen.route){
+            showBar(true)
+            QuestionScreen()
+        }
+        composable(route = Screen.ProfileScreen.route){
+            showBar(true)
+            ProfileScreen()
         }
     }
 }

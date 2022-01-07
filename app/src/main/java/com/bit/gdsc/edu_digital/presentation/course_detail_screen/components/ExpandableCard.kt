@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.bit.gdsc.edu_digital.R
 import com.bit.gdsc.edu_digital.data.remote.dto.DSATopicWiseDtoItem
 import com.bit.gdsc.edu_digital.data.remote.dto.TopicLink
+import com.bit.gdsc.edu_digital.presentation.ui.theme.ExtraSmallPadding
 import com.bit.gdsc.edu_digital.presentation.ui.theme.SmallPadding
 
 @ExperimentalMaterialApi
@@ -38,7 +39,6 @@ fun ExpandableCard(
     val rotationState by animateFloatAsState(
         targetValue = if(expandedState) 180f else 0f
     )
-
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -48,8 +48,7 @@ fun ExpandableCard(
                     easing = LinearOutSlowInEasing
                 )
             ),
-        shape = MaterialTheme.shapes.medium,
-        elevation = 5.dp,
+        shape = MaterialTheme.shapes.large,
         color = bgColor,
         onClick = {
             expandedState = !expandedState
@@ -96,7 +95,7 @@ fun ExpandableCard(
 @ExperimentalMaterialApi
 @Composable
 fun TopicLinkItems(topicLinkItems: List<TopicLink>) {
-    LazyRow(){
+    LazyRow {
         items(topicLinkItems.size){
             if(it>0){
                 Spacer(modifier = Modifier.size(SmallPadding))
@@ -134,12 +133,10 @@ fun TopicLinkItemCard(item : TopicLink) {
                 painter = painterResource(id = R.drawable.icon_youtube),
                 contentDescription ="youtube video"
             )
-
             else -> Image(
                 painter = painterResource(id = R.drawable.icon_gfg),
                 contentDescription ="web view"
             )
         }
-
     }
 }
