@@ -106,4 +106,7 @@ dependencies {
 
     // Youtube player
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    // Custom tab
+    implementation "androidx.browser:browser:1.4.0"
 }
