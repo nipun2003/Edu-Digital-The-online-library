@@ -1,8 +1,13 @@
 package com.bit.gdsc.edu_digital.domain.model
 
 import androidx.annotation.DrawableRes
+import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.graphics.Color
 import com.bit.gdsc.edu_digital.R
+import com.bit.gdsc.edu_digital.presentation.ui.theme.Color1
+import com.bit.gdsc.edu_digital.presentation.ui.theme.Color2
+import com.bit.gdsc.edu_digital.presentation.ui.theme.Color3
+import com.bit.gdsc.edu_digital.presentation.ui.theme.Color4
 
 data class Course(
     val id: Int,
@@ -14,24 +19,31 @@ data class Course(
 
 val courses: List<Course> = listOf(
     Course(
-        id = 2,
-        name = "CPP",
+        id = 1,
+        name = "Data Structure",
         iconId = R.drawable.ic_bottom_nav_courses,
-        color = Color.Green,
+        color = Color1,
+        backgroundImgId = R.drawable.top_image_courses_screen
+    ),
+    Course(
+        id = 2,
+        name = "Algorithm",
+        iconId = R.drawable.ic_bottom_nav_courses,
+        color = Color2,
         backgroundImgId = R.drawable.top_image_courses_screen
     ),
     Course(
         id = 3,
-        name = "Java",
+        name = "CPP",
         iconId = R.drawable.ic_bottom_nav_courses,
-        color = Color.Green,
+        color = Color3,
         backgroundImgId = R.drawable.top_image_courses_screen
     ),
     Course(
-        id = 1,
-        name = "Data Structure & Algorithm",
+        id = 4,
+        name = "Java",
         iconId = R.drawable.ic_bottom_nav_courses,
-        color = Color.Green,
+        color = Color4,
         backgroundImgId = R.drawable.top_image_courses_screen
     )
 )
