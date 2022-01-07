@@ -122,12 +122,12 @@ fun TopicLinkItemCard(item : TopicLink) {
             )
 
             "youtube" -> Image(
-                painter = painterResource(id = R.drawable.ic_bottom_nav_profile),
+                painter = painterResource(id = R.drawable.icon_youtube),
                 contentDescription ="youtube video"
             )
 
             else -> Image(
-                painter = painterResource(id = R.drawable.ic_bottom_nav_courses),
+                painter = painterResource(id = R.drawable.icon_gfg),
                 contentDescription ="web view"
             )
         }
