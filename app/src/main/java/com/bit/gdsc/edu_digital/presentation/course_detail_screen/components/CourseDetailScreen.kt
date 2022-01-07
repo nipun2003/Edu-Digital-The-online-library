@@ -74,7 +74,7 @@ fun TopBar(
     Surface(
         modifier = modifier,
         color = MaterialTheme.colors.background,
-        elevation = SmallPadding
+        elevation = ExtraSmallPadding
     ) {
         Row(
             modifier = Modifier
