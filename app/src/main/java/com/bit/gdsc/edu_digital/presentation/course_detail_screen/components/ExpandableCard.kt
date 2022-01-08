@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -116,7 +117,6 @@ fun TopicLinkItemCard(item : TopicLink) {
         elevation = 5.dp,
         color = Color.White,
         onClick = {
-            Log.e("TAG", item.link)
             val url : String = item.link
             val builder = CustomTabsIntent.Builder();
             val customTabsIntent = builder.build();
@@ -130,8 +130,11 @@ fun TopicLinkItemCard(item : TopicLink) {
             )
 
             "youtube" -> Image(
-                painter = painterResource(id = R.drawable.icon_youtube),
-                contentDescription ="youtube video"
+                painter = painterResource(id = R.drawable.youtube),
+                contentDescription ="youtube video",
+                contentScale = ContentScale.Fit,
+                alignment = Alignment.Center,
+                modifier = Modifier.size(40.dp)
             )
             else -> Image(
                 painter = painterResource(id = R.drawable.icon_gfg),

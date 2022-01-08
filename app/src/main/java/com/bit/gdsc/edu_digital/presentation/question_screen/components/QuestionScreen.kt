@@ -1,25 +1,26 @@
 package com.bit.gdsc.edu_digital.presentation.question_screen.components
 
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bit.gdsc.edu_digital.R
 import com.bit.gdsc.edu_digital.data.remote.dto.QuestionDtoItem
-import com.bit.gdsc.edu_digital.domain.model.DownloadedPdf
 import com.bit.gdsc.edu_digital.presentation.question_screen.QuestionViewModel
 import com.bit.gdsc.edu_digital.presentation.ui.theme.*
 
+@ExperimentalMaterialApi
 @Composable
 fun QuestionScreen(
     viewModel: QuestionViewModel = hiltViewModel()
@@ -54,9 +55,16 @@ fun QuestionScreen(
                 if(it>0){
                     Spacer(modifier = Modifier.size(SmallPadding))
                 }
+                val clr : Color = when(it%4){
+                    0 -> Color1
+                    1 -> Color2
+                    2 -> Color3
+                    else -> Color4
+                }
                 QuestionCard(
                     modifier = Modifier.fillMaxWidth(),
-                    questionItem = data[it]
+                    questionItem = data[it],
+                    clr
                 )
             }
             item {
@@ -66,20 +74,30 @@ fun QuestionScreen(
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
 fun QuestionCard(
     modifier: Modifier = Modifier,
-    questionItem: QuestionDtoItem
+    questionItem: QuestionDtoItem,
+    clr: Color
 ) {
+    val context = LocalContext.current
     Surface(
-        color = Color.White,
+        color = clr,
         shape = MaterialTheme.shapes.medium,
         modifier = modifier,
-        elevation = 5.dp
+        elevation = 5.dp,
+        onClick = {
+            val url : String = questionItem.questionLink
+            val builder = CustomTabsIntent.Builder();
+            val customTabsIntent = builder.build();
+            customTabsIntent.launchUrl(context, Uri.parse(url));
+        }
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .aspectRatio(2.5f)
         ) {
             Row(
                 modifier = Modifier
@@ -100,10 +118,12 @@ fun QuestionCard(
                 ) {
                     Text(
                         text = questionItem.topic,
-                        style = Typography.h3
+                        style = Typography.h3,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                     Text(
-                        text = questionItem.questionLink,
+                        text = "Share the problem question link to the Computer to solve",
                         style = Typography.body1
                     )
                 }

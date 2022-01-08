@@ -16,6 +16,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.bit.gdsc.edu_digital.R
+import com.bit.gdsc.edu_digital.presentation.ui.theme.BottomSelectedColor
+import com.bit.gdsc.edu_digital.presentation.ui.theme.BottomUnselectedColor
 
 @ExperimentalMaterialApi
 @Composable
@@ -81,8 +83,8 @@ fun BottomNavBarState(
             BottomNavigationItem(
                 selected = selected,
                 onClick = { onItemClick(item) },
-                selectedContentColor = Color.Blue,
-                unselectedContentColor = Color.Gray,
+                selectedContentColor = BottomSelectedColor,
+                unselectedContentColor = BottomUnselectedColor,
                 icon = {
                     Column(
                         horizontalAlignment = CenterHorizontally,
