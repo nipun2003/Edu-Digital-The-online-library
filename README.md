@@ -15,10 +15,10 @@ In this project, we have tried to identify some good resources for learning some
 <b> Functionality & Concepts used : </b>
 
 - The App has a very simple and interactive interface which helps the students select their language and learn data structure and algorithms and the programming language which they want to learn with the one of the best resources. Following are few android concepts used to achieve the functionalities in app : 
-- Jetpack Navigation is used to navigate between different screens and in bottom navigation bar
-- RecyclerView : To present the list of available courses to learn through this app in courses screen and for presenting questions in question screen
-- Getting data from Internet in backgroun thread using "Coroutines"
-- Firebase Remote config to be able to change data without giving an update to the user
+- Jetpack Navigation is used to navigate between different screens and in bottom navigation bar.
+- RecyclerView : To present the list of available courses to learn through this app in courses screen and for presenting questions in question screen.
+- Getting data from Internet in background thread using "Coroutines".
+- Firebase Remote config to be able to change data without giving an update to the user.
 - LiveData & ViewModel : We are also using LiveData to update & observe any changes in the content displayed in the app.
 
 <b> Application Link & Future Scope : </b>
