@@ -21,29 +21,29 @@ val courses: List<Course> = listOf(
     Course(
         id = 1,
         name = "Data Structure",
-        iconId = R.drawable.ic_bottom_nav_courses,
+        iconId = R.drawable.dsa,
         color = Color1,
-        backgroundImgId = R.drawable.top_image_courses_screen
+        backgroundImgId = R.drawable.aa
     ),
     Course(
         id = 2,
         name = "Algorithm",
-        iconId = R.drawable.ic_bottom_nav_courses,
+        iconId = R.drawable.algorithms,
         color = Color2,
-        backgroundImgId = R.drawable.top_image_courses_screen
+        backgroundImgId = R.drawable.aa
     ),
     Course(
         id = 3,
         name = "CPP",
-        iconId = R.drawable.ic_bottom_nav_courses,
+        iconId = R.drawable.c__,
         color = Color3,
-        backgroundImgId = R.drawable.top_image_courses_screen
+        backgroundImgId = R.drawable.aa
     ),
     Course(
         id = 4,
         name = "Java",
-        iconId = R.drawable.ic_bottom_nav_courses,
+        iconId = R.drawable.java,
         color = Color4,
-        backgroundImgId = R.drawable.top_image_courses_screen
+        backgroundImgId = R.drawable.aa
     )
 )

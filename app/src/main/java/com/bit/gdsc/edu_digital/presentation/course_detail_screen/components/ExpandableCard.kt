@@ -130,9 +130,11 @@ fun TopicLinkItemCard(item : TopicLink) {
             )
 
             "youtube" -> Image(
-                painter = painterResource(id = R.drawable.icon_youtube),
+                painter = painterResource(id = R.drawable.youtube),
                 contentDescription ="youtube video",
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.Fit,
+                alignment = Alignment.Center,
+                modifier = Modifier.size(40.dp)
             )
             else -> Image(
                 painter = painterResource(id = R.drawable.icon_gfg),
