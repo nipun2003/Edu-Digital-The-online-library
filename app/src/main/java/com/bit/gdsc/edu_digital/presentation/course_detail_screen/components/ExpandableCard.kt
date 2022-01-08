@@ -27,6 +27,8 @@ import androidx.compose.ui.unit.dp
 import com.bit.gdsc.edu_digital.R
 import com.bit.gdsc.edu_digital.data.remote.dto.DSATopicWiseDtoItem
 import com.bit.gdsc.edu_digital.data.remote.dto.TopicLink
+import com.bit.gdsc.edu_digital.presentation.ui.theme.BigPadding
+import com.bit.gdsc.edu_digital.presentation.ui.theme.ExtraBigPadding
 import com.bit.gdsc.edu_digital.presentation.ui.theme.ExtraSmallPadding
 import com.bit.gdsc.edu_digital.presentation.ui.theme.SmallPadding
 
@@ -126,7 +128,10 @@ fun TopicLinkItemCard(item : TopicLink) {
         when(item.linkType){
             "pdf" -> Image(
                 painter = painterResource(id = R.drawable.icon_pdf),
-                contentDescription ="pdf"
+                contentDescription ="pdf",
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(BigPadding),
             )
 
             "youtube" -> Image(
@@ -134,11 +139,16 @@ fun TopicLinkItemCard(item : TopicLink) {
                 contentDescription ="youtube video",
                 contentScale = ContentScale.Fit,
                 alignment = Alignment.Center,
-                modifier = Modifier.size(40.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(BigPadding),
             )
             else -> Image(
                 painter = painterResource(id = R.drawable.icon_gfg),
-                contentDescription ="web view"
+                contentDescription ="web view",
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(BigPadding),
             )
         }
     }
