@@ -14,15 +14,17 @@ In this project, we have tried to identify some good resources for learning some
     	  	
 <b> Functionality & Concepts used : </b>
 
-- The App has a very simple and interactive interface which helps the students select their route bus and track its location. Following are few android concepts used to achieve the functionalities in app : 
-- Constraint Layout : Most of the activities in the app uses a flexible constraint layout, which is easy to handle for different screen sizes.
-- Simple & Easy Views Design : Use of familiar audience EditText with hints and interactive buttons made it easier for students to register or sign in without providing any detailed instructions pages. Apps also uses App Navigation to switch between different screens.
-- RecyclerView : To present the list of different route busses we used the efficient recyclerview.
-Google Maps API : We are also using the Google Maps API free version for  below 1000 users. In future if the user base increases we will go for the upgraded plan too.
-- LiveData & Room Database : We are also using LiveData to update & observe any changes in the Bus driver's locations received from their mobile at real time and update it to local databases using Room. Coordinates are then updated in the bus route screen and students can track their route bus locations.
+- The App has a very simple and interactive interface which helps the students select their language and learn data structure and algorithms and the programming language which they want to learn with the one of the best resources. Following are few android concepts used to achieve the functionalities in app : 
+- Jetpack Navigation is used to navigate between different screens and in bottom navigation bar
+- RecyclerView : To present the list of available courses to learn through this app in courses screen and for presenting questions in question screen
+- Getting data from Internet in backgroun thread using "Coroutines"
+- Firebase Remote config to be able to change data without giving an update to the user
+- LiveData & ViewModel : We are also using LiveData to update & observe any changes in the content displayed in the app.
 
 <b> Application Link & Future Scope : </b>
 
-The app is currently in the Alpha testing phase with GNITS institute with a limited no. of users, You can access the app : [YOUR APP LINK HERE](either Github link or Google Play store link of published app or .apk file).
+The app is currently in the testing phase, You will be able to access the app soon as it will be uploaded on the playstore :
 
-Once the app is fully tested and functional in GNITS institute, we plan to talk to neighboring colleges also to propose this app idea and collaborate with them on this transportation service. We aim that by next year most of the colleges in our district will use Bus tracking apps to check out their bus routes and be informed all the time. Also we are planning to include emergency SOS features for students traveling in busses if they are stuck somewhere. 
+We are planning to give support for more languages like python and for more technologies like Android development, machine learning, etc
+and working to make that user freindly so that any user can add the questions they feel good this will make a good community,
+Contents will be updated and new resources will be added to learn that
