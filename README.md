@@ -10,7 +10,15 @@ In this world of the Internet with a lot and lot of content and courses to learn
 
 In this project, we have tried to identify some good resources for learning some of the general programming skills like Data Structures, Algorithms, Cpp, Java and provided that in the android app so that anyone can easily learn by reading blogs, pdfs or by watching videos, provided some best questions topic wise to practice for those who want to master their skills by small some good questions.
 
-<img width="559" alt="sampleimages" src="https://user-images.githubusercontent.com/18289261/142846646-a6858641-ad88-43aa-b8bb-b690fd7126f1.png">
+# 
+
+<div style="display:flex;">
+<img alt="App image" src="https://drive.google.com/file/d/1CVyLub7CDmEMpXhlKuwuAC-dCJWsPEAC/view?usp=sharing" width="16%">
+<img alt="App image" src="https://drive.google.com/file/d/1CaFqqhX2OsJwOCEq6VTKMacoO92oAqx3/view?usp=sharing" width="16%">
+<img alt="App image" src="https://drive.google.com/file/d/1CaOw9ZcreljRGJajsequryOlzDRJOibU/view?usp=sharing" width="16%">
+<img alt="App image" src="https://drive.google.com/file/d/1Cdoj_PTzbWIZFLTX5XFNZ80hp3XMfxlC/view?usp=sharing" width="16%">
+<img alt="App image" src="https://drive.google.com/file/d/1Cfqri6sC2e9toDbelAxXyuXznfhs2dSF/view?usp=sharing" width="16%">
+</div>
     	  	
 <b> Functionality & Concepts used : </b>
 
