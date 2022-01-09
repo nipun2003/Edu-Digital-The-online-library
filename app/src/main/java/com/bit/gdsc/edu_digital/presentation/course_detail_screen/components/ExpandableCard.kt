@@ -143,6 +143,17 @@ fun TopicLinkItemCard(item : TopicLink) {
                     .fillMaxSize()
                     .padding(BigPadding),
             )
+
+            "leetcode" -> Image(
+                painter = painterResource(id = R.drawable.leetcode),
+                contentDescription ="youtube video",
+                contentScale = ContentScale.Fit,
+                alignment = Alignment.Center,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(BigPadding),
+            )
+
             else -> Image(
                 painter = painterResource(id = R.drawable.icon_gfg),
                 contentDescription ="web view",

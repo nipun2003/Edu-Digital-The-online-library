@@ -51,15 +51,13 @@ fun CourseDetailScreen(
                     if (it > 0) {
                         Spacer(modifier = Modifier.size(SmallPadding))
                     }
-
-                    val clrCheck = it % 4;
-                    when (it) {
-                        0 -> ExpandableCard(topicWiseState.data[it], Color1)
-                        1 -> ExpandableCard(topicWiseState.data[it], Color2)
-                        2 -> ExpandableCard(topicWiseState.data[it], Color3)
-                        else -> ExpandableCard(topicWiseState.data[it], Color4)
+                    val clr : Color = when(it%4){
+                        0 -> Color1
+                        1 -> Color2
+                        2 -> Color3
+                        else -> Color4
                     }
-
+                    ExpandableCard(topicItem = topicWiseState.data[it], bgColor = clr)
                 }
             }
         }
