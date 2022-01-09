@@ -13,11 +13,11 @@ In this project, we have tried to identify some good resources for learning some
 # 
 
 <div style="display:flex;">
-<img alt="App image" src="https://drive.google.com/file/d/1CVyLub7CDmEMpXhlKuwuAC-dCJWsPEAC/view?usp=sharing" width="16%">
-<img alt="App image" src="https://drive.google.com/file/d/1CaFqqhX2OsJwOCEq6VTKMacoO92oAqx3/view?usp=sharing" width="16%">
-<img alt="App image" src="https://drive.google.com/file/d/1CaOw9ZcreljRGJajsequryOlzDRJOibU/view?usp=sharing" width="16%">
-<img alt="App image" src="https://drive.google.com/file/d/1Cdoj_PTzbWIZFLTX5XFNZ80hp3XMfxlC/view?usp=sharing" width="16%">
-<img alt="App image" src="https://drive.google.com/file/d/1Cfqri6sC2e9toDbelAxXyuXznfhs2dSF/view?usp=sharing" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img1.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img2.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img3.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img4.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img5.jpg" width="16%">
 </div>
     	  	
 <b> Functionality & Concepts used : </b>
