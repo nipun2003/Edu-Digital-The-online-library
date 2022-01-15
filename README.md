@@ -13,11 +13,11 @@ In this project, we have tried to identify some good resources for learning some
 # 
 
 <div style="display:flex;">
-<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img1.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img2.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img3.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img4.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/Edu-Digital-The-online-library-1/blob/main/Images/img5.jpg" width="16%">
+<img alt="App image" src="./Images/img1.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img2.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img3.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img4.jpg" width="16%">
+<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img5.jpg" width="16%">
 </div>
     	  	
 <b> Functionality & Concepts used : </b>
@@ -31,7 +31,7 @@ In this project, we have tried to identify some good resources for learning some
 
 <b> Application Link & Future Scope : </b>
 
-The app is currently in the testing phase, You will be able to access the app soon as it will be uploaded on the playstore :
+The app is currently in the testing phase, You will be able to access the app soon as it will be uploaded on the playstore : You can still check out <a href="https://github.com/GDSC-BIT-Sindri/EduDigital/raw/main/app/app-release.apk">here.</a>
 
 We are planning to give support for more languages like python and for more technologies like Android development, machine learning, etc
 and working to make that user freindly so that any user can add the questions they feel good this will make a good community,
