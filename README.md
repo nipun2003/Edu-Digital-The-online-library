@@ -14,10 +14,10 @@ In this project, we have tried to identify some good resources for learning some
 
 <div style="display:flex;">
 <img alt="App image" src="./Images/img1.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img2.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img3.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img4.jpg" width="16%">
-<img alt="App image" src="https://github.com/prafullashekhar/EduDigital/blob/main/Images/img5.jpg" width="16%">
+<img alt="App image" src="./Images/img2.jpg" width="16%">
+<img alt="App image" src="./Images/img3.jpg" width="16%">
+<img alt="App image" src="./Images/img4.jpg" width="16%">
+<img alt="App image" src="./Images/img5.jpg" width="16%">
 </div>
     	  	
 <b> Functionality & Concepts used : </b>
